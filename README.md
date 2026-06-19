@@ -1,4 +1,4 @@
-# EnSpectr body scaner gate control and diagnostic tool
+# SmartScan body scaner gate control and diagnostic tool
 
 Access it here https://enspectr.github.io/scan-gate2/
 
