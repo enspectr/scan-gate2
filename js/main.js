@@ -37,7 +37,6 @@ const err_timeout      = 0x10; // 't' Positioning timeout
 const err_blocking_    = 0x20; // First blocking error, so no move with such errors
 const err_power        = 0x20; // 'P' Bad power voltage
 const err_overheat     = 0x40; // 'h' Temperature is too high
-const err_blocked      = 0x80; // 'b' Can't move (detected by motor current)
 
 let last_target = sta_unknown;
 
@@ -218,8 +217,6 @@ function errors_info(val)
 		errs.push('power');
 	if (val & err_overheat)
 		errs.push('overheat');
-	if (val & err_blocked)
-		errs.push('blocked');
 
 	return errs.join(', ');	
 }
@@ -263,7 +260,6 @@ function showDetails(event)
 	initMon('pw_mv',     'pw');
 	initMon('dcdc_mv',   'dc');
 	initMon('vcc_mv',    'vc');
-	initMon('curr_ma',   'mc');
 	initMon('mcu_temp',  'tc');
 	initMon('sens_up',   'su');
 	initMon('sens_down', 'sd');
@@ -288,8 +284,8 @@ function initPage()
 	setClickable(bt_connect, 'connect', onConnect);
 	initAdj('pos-up',       'u', 128);
 	initAdj('pos-down',     'd', 128);
-	initAdj('min-speed',    's');
-	initAdj('cur-limit',    'l');
+	initAdj('seek-speed',   's');
+	initAdj('max-speed',    'x');
 	initAdj('acceleration', 'a');
 	show_details.onclick = showDetails;
 }
