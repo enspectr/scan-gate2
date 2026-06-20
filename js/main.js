@@ -263,6 +263,8 @@ function showDetails(event)
 	initMon('mcu_temp',  'tc');
 	initMon('sens_up',   'su');
 	initMon('sens_down', 'sd');
+	initMon('last_trip', 'tr');
+	initMon('last_gap',  'gp');
 
 	const curr_status   = document.getElementById('status-val');
 	const errors        = document.getElementById('errors-val');
